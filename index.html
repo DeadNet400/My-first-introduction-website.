@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A+ Website</title>
+  <meta name="description" content="A+ Website — Profile, Blog, Structure, Tools" />
+  <link rel="stylesheet" href="styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-circle"></div>
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+  <div class="bg-container">
+    <div id="particles-js"></div>
+  </div>
+  <div class="page-wrapper">
+  <header>
+    <div class="topbar">
+      <div class="container">
+        <div class="brand">
+          <a href="#home" class="brand-logo" aria-label="กลับหน้าแรก (Home)">
+            <div class="logo"></div>
+          </a>
+          <div>
+            <strong class="brand-name">A+ Website</strong>
+            <div class="brand-byline">By Brooklyn</div>
+          </div>
+        </div>
+        <nav aria-label="menu">
+          <button id="tab-home" class="tab active" type="button" data-target="home">Home</button>
+          <button id="tab-about" class="tab" type="button" data-target="about">Profiles</button>
+          <button id="tab-blog" class="tab" type="button" data-target="blog">Blog</button>
+          <button id="tab-structure" class="tab" type="button" data-target="structure">Structure</button>
+          <button id="tab-tools" class="tab" type="button" data-target="tools">Tools</button>
+          <button type="button" id="theme-toggle" class="theme-switch" aria-label="theme switch">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 011.06-1.06l1.591 1.59a.75.75 0 01-1.06 1.06l-1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.836 17.836a.75.75 0 011.06 1.06l-1.59 1.591a.75.75 0 01-1.06-1.06l1.59-1.591zM12 18a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.932 16.07a.75.75 0 01-1.06-1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.591-1.59a.75.75 0 011.06 1.06zM4.5 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H5.25a.75.75 0 01-.75-.75zM6.106 6.106a.75.75 0 01-1.06 1.06l-1.591-1.59a.75.75 0 011.06-1.06l1.591 1.59z"></path></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 004.463-.69a.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.625 4.463-8.482a.75.75 0 01.819.162z" clip-rule="evenodd"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home Panel -->
+    <section id="home" class="panel active" role="region" aria-labelledby="tab-home">
+      <div class="panel-header">
+        <div class="home-logo">WELCOME!</div>
+        <p class="home-desc">Welcome to my site! You can use the top menu to explore and toggle light/dark with the sun–moon icon on the top right. Enjoy!</p>
+      </div>
+    </section>
+
+    <!-- Profiles -->
+    <section id="about" class="panel" role="region" aria-labelledby="tab-about">
+      <h1><strong>Profiles</strong></h1>
+      <div class="profile-switch-layout">
+        <div class="profile-tab-list" role="tablist" aria-label="small menu">
+          <button id="profile-tab-info" class="profile-switch-btn active" type="button" role="tab" aria-selected="true" aria-controls="profile-info" data-profile="info">Information</button>
+          <button id="profile-tab-contact" class="profile-switch-btn" type="button" role="tab" aria-selected="false" aria-controls="profile-contact" data-profile="contact">Contacts</button>
+          <button id="profile-tab-edu" class="profile-switch-btn" type="button" role="tab" aria-selected="false" aria-controls="profile-edu" data-profile="edu">Education</button>
+          <button id="profile-tab-intro" class="profile-switch-btn" type="button" role="tab" aria-selected="false" aria-controls="profile-intro" data-profile="intro">Self-Introduction</button>
+        </div>
+        <div>
+          <div class="profile-switch-panel is-active" id="profile-info" role="tabpanel" aria-labelledby="profile-tab-info">
+            <div class="profile-info-layout">
+              <div class="profile-main-pic-wrapper">
+                <a href="https://img5.pic.in.th/file/secure-sv1/1355680d32bb427fa33876.jpg" class="lightbox-trigger">
+                  <img src="https://img5.pic.in.th/file/secure-sv1/1355680d32bb427fa33876.jpg" alt="Main picture" class="profile-main-pic">
+                </a>
+                <div class="profile-picture-row">
+                  <div class="card picture">
+                    <h2>Picture of me</h2>
+                    <div class="thumb-grid horizontal lightbox-gallery">
+                      <a href="https://img5.pic.in.th/file/secure-sv1/13554719cca29bd8b0bf28.jpg" class="lightbox-trigger">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/13554719cca29bd8b0bf28.jpg" alt="ภาพประกอบ 1">
+                      </a>
+                      <a href="https://img2.pic.in.th/pic/1-.--0488c0c548adbb768f34.jpg" class="lightbox-trigger">
+                        <img src="https://img2.pic.in.th/pic/1-.--0488c0c548adbb768f34.jpg" alt="ภาพประกอบ 2">
+                      </a>
+                      <a href="https://img5.pic.in.th/file/secure-sv1/P1040265_notraw_editted.jpg" class="lightbox-trigger">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/P1040265_notraw_editted.jpg" alt="ภาพประกอบ 3">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-info-box">
+                <h2><strong>Information</strong></h2>
+                <ul>
+                  <li><strong>Name:</strong> Chaiphat Siripratum (Brooklyn).</li>
+                  <li><strong>Faculty:</strong> Faculty of Applied Sciences (SIT68).</li>
+                  <li><strong>University:</strong> King Mongkut's University of Technology North Bangkok.</li>
+                  <li><strong>Workplace:</strong> RTARF Cyber Command.</li>
+                  <li><strong>Position:</strong> CCMT Operator.</li>
+                </ul>
+                <h2><strong>Skills</strong></h2>
+                <div class="skills-container">
+                  <div class="skill-card">
+                    <div class="skill-card-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>
+                    </div>
+                    <div class="skill-card-content">
+                      <h3>Programming</h3>
+                      <p>HTML, CSS, JavaScript, Python, C, C++</p>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-card-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9A2.25 2.25 0 0 0 13.5 5.25h-9a2.25 2.25 0 0 0-2.25 2.25v9A2.25 2.25 0 0 0 4.5 18.75Z" /></svg>
+                    </div>
+                    <div class="skill-card-content">
+                      <h3>Creative Suite</h3>
+                      <p>Photoshop, Adobe Premiere, Vegas Pro</p>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-card-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V7.5A2.25 2.25 0 0 0 13.5 3H5.25A2.25 2.25 0 0 0 3 5.25v9.75a2.25 2.25 0 0 0 2.25 2.25h3.75a2.25 2.25 0 0 0 2.25-2.25V15" /></svg>
+                    </div>
+                    <div class="skill-card-content">
+                      <h3>Music & Arts</h3>
+                      <p>Acoustic Guitar, Thai Xylophone</p>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-card-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.287 7.5 15.5 7.5c1.213 0 2.32-.439 3.334-1.136M9 21.75v-3.375M15.5 21.75v-3.375c0-1.381-1.119-2.5-2.5-2.5h-1.5c-1.381 0-2.5 1.119-2.5 2.5v3.375" /></svg>
+                    </div>
+                    <div class="skill-card-content">
+                      <h3>Language</h3>
+                      <p>English (ALCPT 85%), Thai (Native)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-switch-panel" id="profile-contact" role="tabpanel" aria-labelledby="profile-tab-contact">
+            <div class="profile-contact-list">
+              <a class="social-btn fb" href="https://www.facebook.com/BVERC" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.48 17.52 2 11.94 2 6.37 2 1.88 6.48 1.88 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.98v-2.9h2.34V9.86c0-2.32 1.38-3.61 3.49-3.61.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.42v1.71h2.51l-.4 2.9h-2.11V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+                <span>Brooklyn Vercetti</span>
+              </a>
+              <a class="social-btn ig" href="https://www.instagram.com/just_br00klyn" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2a2.8 2.8 0 100 5.6 2.8 2.8 0 000-5.6zM18 6.5a1 1 0 110 2 1 1 0 010-2z"/></svg>
+                <span>just_br00klyn</span>
+              </a>
+              <a class="social-btn steam" href="https://steamcommunity.com/id/RealVercetti/" target="_blank" rel="noopener" aria-label="Steam">
+                <img src="https://cdn.simpleicons.org/steam/0b1220" alt="" aria-hidden="true">
+                <span>Pikachu on Steroids</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="profile-switch-panel" id="profile-edu" role="tabpanel" aria-labelledby="profile-tab-edu">
+            <div class="education-timeline">
+              <div class="timeline-item">
+                <div class="timeline-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.707 2.293a1 1 0 011.414 0l9 9a1 1 0 01-1.414 1.414L12 4.414l-8.293 8.293a1 1 0 01-1.414-1.414l9-9z" /><path d="M3 13a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM3 17a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2012 – 2018</span>
+                  <h3>Trirattanaphirak School</h3>
+                  <p>You can see Brooklyn junior ;).</p> 
+                  <a href="https://img5.pic.in.th/file/secure-sv1/511173624_23934491242844610_9190077793561270933_n36e83c01df79dd67.jpg" class="lightbox-trigger">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/511173624_23934491242844610_9190077793561270933_n36e83c01df79dd67.jpg" alt="Trirattanaphirak School" class="timeline-image" loading="lazy"> 
+                  </a>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.707 2.293a1 1 0 011.414 0l9 9a1 1 0 01-1.414 1.414L12 4.414l-8.293 8.293a1 1 0 01-1.414-1.414l9-9z" /><path d="M3 13a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM3 17a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2018 – 2022</span>
+                  <h3>Sarawittaya School (SRV74).</h3>
+                  <p>This was my best time as a student.</p> 
+                  <a href="https://img5.pic.in.th/file/secure-sv1/118231507_629000871363966_8019169413314148998_n-1.jpg" class="lightbox-trigger">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/118231507_629000871363966_8019169413314148998_n-1.jpg" alt="Sarawittaya School" class="timeline-image" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.707 2.293a1 1 0 011.414 0l9 9a1 1 0 01-1.414 1.414L12 4.414l-8.293 8.293a1 1 0 01-1.414-1.414l9-9z" /><path d="M3 13a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM3 17a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2022 – 2025</span>
+                  <h3>Military Technical Training School (MTTS63).</h3>
+                  <p>Tiring and tough, but I pushed through — one of my proudest achievements.</p> 
+                  <a href="https://img2.pic.in.th/pic/S__26124306.jpg" class="lightbox-trigger">
+                    <img src="https://img2.pic.in.th/pic/S__26124306.jpg" alt="Military Technical Training School" class="timeline-image" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.707 2.293a1 1 0 011.414 0l9 9a1 1 0 01-1.414 1.414L12 4.414l-8.293 8.293a1 1 0 01-1.414-1.414l9-9z" /><path d="M3 13a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM3 17a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1z" /></svg></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025 – Present</span>
+                  <h3>King Mongkut's University of Technology North Bangkok.</h3>
+                  <p>I don’t know much about the university but I’ll make it to graduation.</p> 
+                  <a href="https://img2.pic.in.th/pic/24-05-68_05-f.jpg" class="lightbox-trigger">
+                    <img src="https://img2.pic.in.th/pic/24-05-68_05-f.jpg" alt="Sarawittaya School" class="timeline-image" loading="lazy">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-switch-panel" id="profile-intro" role="tabpanel" aria-labelledby="profile-tab-intro">
+            <div class="intro-header">
+              <h2>Self-Introduction Video</h2>
+              <p>This video offers a brief introduction to who I am.</p>
+            </div>
+            <div class="intro-video-wrapper">
+              <iframe id="yt-frame"
+                src="https://www.youtube.com/embed/UwuNU_JKlFA"
+                title="video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="panel" role="region" aria-labelledby="tab-blog">
+      <h1>Blog</h1>
+      <div class="blog-category-selector" role="tablist" aria-label="blog menu">
+        <button class="blog-category-btn active" type="button" role="tab" aria-selected="true" aria-controls="blog-music" data-category="music">Music</button>
+        <button class="blog-category-btn" type="button" role="tab" aria-selected="false" aria-controls="blog-games" data-category="games">Games</button>
+        <button class="blog-category-btn" type="button" role="tab" aria-selected="false" aria-controls="blog-coding" data-category="coding">Coding</button>
+        <button class="blog-category-btn" type="button" role="tab" aria-selected="false" aria-controls="blog-math" data-category="math">Math</button>
+        <button class="blog-category-btn" type="button" role="tab" aria-selected="false" aria-controls="blog-science" data-category="science">Science</button>
+      </div>
+      <div class="blog-content-wrapper">
+
+        <!-- Music Panel -->
+        <div id="blog-music" class="blog-content-panel active" role="tabpanel">
+          <div class="grid three">
+            <article class="card post">
+              <a href="https://www.virtu.academy/blog/music-theory-made-easy-a-beginners-guide" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://live.staticflickr.com/2770/4326848381_22cd8fef7f_k.jpg" 
+                    alt="Music Theory" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Theory</div>
+                  <h3>Basic Music Theory</h3>
+                  <p class="post-excerpt">Understand the basics of notes, scales, and chords to further your musical playing...</p>
+                  <div class="post-footer">
+                    <span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span>
+                  </div>  
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://www.imusic-school.com/en/tools/guitar-chords/beginner/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://live.staticflickr.com/4004/4269052283_b79d1f6290_k.jpg" 
+                    alt="Guitar" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Instruments</div>
+                  <h3>Basic Acoustic Guitar Chords</h3>
+                  <p class="post-excerpt">Includes guitar strumming techniques, basic chord shapes, and practice exercises for beginners....</p>
+                  <div class="post-footer">
+                    <span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://musictech.com/guides/essential-guide/beginners-guide-music-production/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=75" 
+                    alt="Production" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Production</div>
+                  <h3>Basic Music Production</h3>
+                  <p class="post-excerpt">Create your own music with your own skill!...</p>
+                  <div class="post-footer">
+                    <span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Games Panel -->
+        <div id="blog-games" class="blog-content-panel" role="tabpanel">
+          <div class="grid three">
+            <article class="card post">
+              <a href="https://beebom.com/get-better-at-valorant-tips-tricks/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img2.pic.in.th/pic/-2025-10-01-123510.png" 
+                    alt="valorant-tips" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Tactics</div>
+                  <h3>Tips to get better in Valorant</h3>
+                  <p>You can get better in Valorant by using these tips!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://www.gamesradar.com/history-of-valve/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img5.pic.in.th/file/secure-sv1/front-view-soldier-wearing-camouflage-equipment.jpg" 
+                    alt="CS but cooler" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">History</div>
+                  <h3>History of Valve Corporation and Steam.</h3>
+                  <p>From a small studio to one of the most influential forces in gaming—how did they do it?...</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://egamersworld.com/valorant/news/28231/paper-rex-dominate-g2-with-a-2-0-victory-to-advanc-rpwdzcjK5" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img2.pic.in.th/pic/professional-esports-gamer-back-side-view-rejoices-victory-generative-ai.jpg" 
+                    alt="Esports" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Esports</div>
+                  <h3>Paper Rex dominate G2 Esports with a 2-0 victory!</h3>
+                  <p>Here’s how Paper Rex took down G2 Esports—and the result might surprise you...</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Coding Panel -->
+        <div id="blog-coding" class="blog-content-panel" role="tabpanel">
+          <div class="grid three">
+            <article class="card post">
+              <a href="https://www.ironhack.com/gb/blog/a-beginner-s-guide-to-html-and-css-for-web-development" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img5.pic.in.th/file/secure-sv1/codea17f39f68092154f.png" 
+                    alt="CSS" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Web Development</div>
+                  <h3>You can be web developer by learning these!</h3>
+                  <p>Basic HTML and CSS for web developer!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://medium.com/@choksi61/kioptrix-level-1-without-metasploit-walkthough-f2384585675b" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=800&q=75" 
+                    alt="Kali" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Hacking</div>
+                  <h3>Kioptrix Level 1 without Metasploit Walkthrough.</h3>
+                  <p>Learning Basic hacking with Vulnhub Lab!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://kinsta.com/blog/what-is-github/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=75" 
+                    alt="GitHub" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Tools</div>
+                  <h3>What is Github?</h3>
+                  <p>Github is popular, but what is Github?..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Math Panel -->
+        <div id="blog-math" class="blog-content-panel" role="tabpanel">
+          <div class="grid three">
+            <article class="card post">
+              <a href="https://www.cuemath.com/calculus/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=75" 
+                    alt="Math" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Calculus</div>
+                  <h3>Basic Calculus for Working.</h3>
+                  <p>Learning Calculus for Working and your life!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="blog/math/probability-and-statistics.html" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=75" 
+                    alt="moremath" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Statistics</div>
+                  <h3>Statistics is more interesting than you think!</h3>
+                  <p>Come and learn Statistics by yourself!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://www.cuemath.com/geometry/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img5.pic.in.th/file/secure-sv1/b6d6dc22-0e2c-4959-bfce-6467fb9fb08b.png" 
+                    alt="bylatmath" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Geometry</div>
+                  <h3>Geometry in Math.</h3>
+                  <p>Geometry in Math is easier than you think!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <!-- Science Panel -->
+        <div id="blog-science" class="blog-content-panel" role="tabpanel">
+          <div class="grid three">
+            <article class="card post">
+              <a href="https://www.ibm.com/think/topics/quantum-computing" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img5.pic.in.th/file/secure-sv1/ChatGPT-Image-Oct-2-2025-08_57_57-PM.png" 
+                    alt="Quantom" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Physics</div>
+                  <h3>Quantam Physics in Computer Science.</h3>
+                  <p>Learning Quantam Physics in Computer Science by clicking here...</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://science.howstuffworks.com/nuclear-bomb.htm" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img2.pic.in.th/pic/ChatGPT-Image-Oct-2-2025-08_59_05-PM.png" 
+                    alt="Boom" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Chemistry</div>
+                  <h3>How Nuclear Bombs Work?</h3>
+                  <p>Basic question but hard to answer...</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+            <article class="card post">
+              <a href="https://science.nasa.gov/resource/first-image-of-a-black-hole/" target="_blank" rel="noopener" class="post-link-wrapper">
+                <div class="post-image-wrapper">
+                  <img 
+                    src="https://img5.pic.in.th/file/secure-sv1/ChatGPT-Image-Oct-2-2025-09_00_08-PM.png" 
+                    alt="Wow" 
+                    loading="lazy" 
+                    decoding="async">
+                </div>
+                <div class="post-content">
+                  <div class="post-category-tag">Space</div>
+                  <h3>First Image of a Black Hole.</h3>
+                  <p>Nasa just took a photo of Black Hole for the first time!..</p>
+                  <div class="post-footer"><span class="read-more">Read here. <span class="arrow" aria-hidden="true">&rarr;</span></span></div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Structure -->
+    <section id="structure" class="panel" role="region" aria-labelledby="tab-structure">
+      <h1>Structure</h1>
+      <div class="grid two">
+        <div class="card">
+          <h2>Sitemap</h2>
+          <ul class="tree-view">
+            <li>Home</li>
+            <li>Profiles
+              <ul>
+                <li>Information</li>
+                <li>Contacts</li>
+                <li>Education</li>
+                <li>Self-Introduction</li>
+              </ul>
+            </li>
+            <li>Blog
+              <ul>
+                <li>Music</li>
+                <li>Games</li>
+                <li>Coding</li>
+                <li>Math</li>
+                <li>Science</li>
+              </ul>
+            </li>
+            <li>Structure</li>
+            <li>Tools</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Project Files</h2>
+          <ul class="file-list">
+            <li class="file-item folder">
+              <span class="file-icon">📁</span>
+              <span class="file-name">styles/</span>
+              <span class="file-desc">CSS Stylesheets</span>
+            </li>
+            <li class="file-item folder">
+              <span class="file-icon">📁</span>
+              <span class="file-name">scripts/</span>
+              <span class="file-desc">JavaScript Files</span>
+            </li>
+            <li class="file-item file">
+              <span class="file-icon">📄</span>
+              <span class="file-name">index.html</span>
+              <span class="file-desc">Main HTML Document</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="panel" role="region" aria-labelledby="tab-tools">
+      <h1>Tools & Technologies</h1>
+      <div class="tools-grid">
+        <div class="card tool-card">
+          <div class="tool-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+          </div>
+          <h3>Core Technologies</h3>
+          <p>Built with HTML5, styled with CSS3, and enhanced by JavaScript.</p>
+        </div>
+        <div class="card tool-card">
+          <div class="tool-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624l.259 1.035L18 21.75l-.843-3.417a3.375 3.375 0 00-2.455-2.456L11.25 15l1.036.259a3.375 3.375 0 002.455 2.456l3.158.79z" /></svg>
+          </div>
+          <h3>Custom Fonts</h3>
+          <p>Styled with VT323 for that classic hacker vibe.</p>
+        </div>
+        <div class="card tool-card">
+          <div class="tool-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9.75 6l-3-2.25 3-2.25m-3 4.5h3.375c.621 0 1.125-.504 1.125-1.125V10.5" /></svg>
+          </div>
+          <h3>Editor & Environment</h3>
+          <p>Written in Visual Studio Code, the powerful and popular editor.</p>
+        </div>
+        <div class="card tool-card">
+          <div class="tool-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+          </div>
+          <h3>Image Hosting</h3>
+          <p>All images are hosted on Pic.in.th for speed, stability, and disk savings.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-text">Made by Chaiphat Siripratum • Last Updated: <span id="lastUpdated"></span></p>
+      <div class="footer-socials">
+        <a class="footer-social-link" href="https://www.facebook.com/BVERC" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.48 17.52 2 11.94 2 6.37 2 1.88 6.48 1.88 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.98v-2.9h2.34V9.86c0-2.32 1.38-3.61 3.49-3.61.99 0 2.03.18 2.03.18v2.24h-1.14c-1.12 0-1.47.7-1.47 1.42v1.71h2.51l-.4 2.9h-2.11V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://www.instagram.com/just_br00klyn" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2a2.8 2.8 0 100 5.6 2.8 2.8 0 000-5.6zM18 6.5a1 1 0 110 2 1 1 0 010-2z"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://steamcommunity.com/id/RealVercetti/" target="_blank" rel="noopener" aria-label="Steam">
+          <img src="https://cdn.simpleicons.org/steam/0b1220" alt="" aria-hidden="true">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="scripts/script.js" defer></script>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" aria-label="Close image view" role="button">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Enlarged image">
+  </div>
+
+
+  <button id="back-to-top" type="button" aria-label="back-to-top" title="back-to-top">&uarr;</button>
+  </div>
+</body>
+</html>

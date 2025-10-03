@@ -19,11 +19,9 @@
   --blog-btn-bg: #fff;
   --blog-btn-border: #d1d5db;
   --blog-btn-text: #374151;
-  --blog-btn-active-bg: #e0e7ff;
+  --blog-btn-active-bg: #fff;
   --blog-btn-active-border: #a5b4fc;
   --blog-btn-active-text: #1e40af;
-
-  --cursor-color: #18181b;
 }
 
 body.dark-mode {
@@ -45,8 +43,6 @@ body.dark-mode {
   --blog-btn-active-bg: rgba(34, 211, 238, 0.1);
   --blog-btn-active-border: var(--accent);
   --blog-btn-active-text: var(--accent);
-
-  --cursor-color: #e2e8f0;
 }
 
 *{box-sizing:border-box}
@@ -65,58 +61,47 @@ body.dark-mode {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--accent);
 }
-/* ทำให้ปุ่มและโค้ดใช้ฟอนต์เดียวกับส่วนอื่นๆ ของเว็บ */
 button,
 code {
   font-family: inherit;
 }
 
-/* scrollbar stable + กันกระดิกตอนสกรอลล์บาร์โผล่/หาย */
 html{
   height:100%;
   scrollbar-gutter:stable;
   overflow-y:scroll;
-  font-size: 18px; /* เพิ่มขนาดฟอนต์พื้นฐาน ทำให้ 1rem ใหญ่ขึ้น */
+  font-size: 18px;
 }
 
 body{
-  position: relative; /* ทำให้ ::before อ้างอิงตำแหน่งกับ body ได้ */
+  position: relative; 
   min-height:100%;
   margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans"; /* ใช้ระบบก่อน เพื่อลด shift */
-  color:var(--panel-text); /* สีตัวอักษรหลัก (ถูก panel/card ทับอยู่) */
-  background-color: transparent; /* ทำให้พื้นหลังของ .bg-container แสดงผลได้ */
-}
-
-/* สร้าง Container แยกสำหรับพื้นหลังเพื่อแก้ปัญหา Overflow ที่เกิดจาก Gradient */
-.bg-container {
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans"; 
+  color:var(--panel-text); 
+  background-color: transparent; /
+}.bg-container {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: -1; /* ส่งไปไว้หลังสุด */
-  overflow: hidden; /* ซ่อน Gradient ที่ล้นออกไป */
-  background: url('https://media1.tenor.com/m/Z8adVIkV_GEAAAAd/cyberpsychosis.gif') center center / cover no-repeat,
+  z-index: -1;
+  overflow: hidden;
+  background: url('https://img5.pic.in.th/file/secure-sv1/18910283_MotionElements_starry-sky-full-moon-clouds-and-yellow-vimage.gif') center center / cover no-repeat,
               radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.12), transparent 40%),
               radial-gradient(1000px 600px at 120% 10%, rgba(34,211,238,.12), transparent 35%),
-              var(--bg); /* ย้ายสีพื้นหลังหลักมาไว้ที่นี่ */
-}
-
-/* --- Particle JS Container --- */
-#particles-js {
+              var(--bg);
+}.particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
-/* สร้าง Wrapper เพื่อแก้ปัญหาเงาของ Panel ล้นขอบจอ */
 .page-wrapper {
   overflow-x: clip;
-  position: relative; /* ทำให้ z-index ของ header ทำงานถูกต้อง */
+  position: relative;
 }
 
 a{ color:var(--brand) }
 
-/* ---------- Header ---------- */
 header{
   position:sticky; top:0; z-index:20;
   background:#000; color:#e5e7eb;
@@ -492,16 +477,28 @@ footer{
 }
 
 #blog .grid.three {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex; /* Changed from grid to flex */
+  flex-direction: column; /* Ensure posts stack vertically */
   gap: 32px;
 }
 
 #blog .card.post {
   padding: 0;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: transparent; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: var(--panel-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.post-inner-wrapper {
+  display: flex;
+  align-items: stretch;
+  padding: 24px;
+  gap: 24px;
+}
+#blog .card.post:nth-child(even) .post-inner-wrapper {
+  flex-direction: row-reverse;
 }
 .post-link-wrapper {
   display: flex;
@@ -513,9 +510,11 @@ footer{
   transition: background-color 0.3s ease;
 }
 .post-image-wrapper {
-  height: 200px;
+  flex: 1 1 40%; /* Let image take up 40% of the width */
+  min-width: 300px;
   overflow: hidden;
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
 }
 .post-image-wrapper img {
   width: 100%;
@@ -528,7 +527,8 @@ footer{
 }
 
 .post-content {
-  padding: 20px 24px 24px;
+  padding: 0;
+  flex: 1 1 60%; /* Let content take up 60% of the width */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -560,10 +560,95 @@ footer{
   opacity: 0.7;
 }
 .post-footer { margin-top: 20px; }
-.read-more { font-weight: bold; color: var(--link-color); font-size: 1.1rem; }
-.read-more .arrow { display: inline-block; transition: transform 0.3s ease; }
-.card.post:hover .read-more .arrow { transform: translateX(5px); }
+.read-more-btn {
+  appearance: none;
+  background: var(--accent);
+  border: 1.5px solid var(--accent);
+  padding: 10px 18px;
+  margin: 0;
+  font-family: inherit;
+  font-weight: bold;
+  color: var(--bg);
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 99px;
+  box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.read-more-btn:hover {
+  background-color: #40e0f8; /* A slightly lighter shade of accent */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.3);
+}
+.read-more-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.card.post.is-expanded .read-more-btn .arrow { transform: rotate(90deg) translateX(0); }
 
+.post-expanded-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-in-out;
+  background-color: var(--panel-bg);
+}
+.post-expanded-content > div {
+  overflow: hidden;
+}
+.post-expanded-content p {
+  padding: 24px; margin: 0; font-size: 1.1rem; line-height: 1.6; opacity: 0.8;
+}
+.post-expanded-content h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 1em 0 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid var(--panel-border);
+}
+.post-expanded-content h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 1.5em 0 0.8em;
+}
+.post-expanded-content ul,
+.post-expanded-content ol {
+  padding-left: 2em;
+  margin: 1em 0;
+}
+.post-expanded-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+.post-expanded-content p + ul,
+.post-expanded-content p + ol {
+  margin-top: -0.5em;
+}
+.post-expanded-content :not(pre) > code {
+  background-color: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  padding: 0.2em 0.5em;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+.post-expanded-content pre {
+  background-color: rgba(0,0,0, 0.05);
+  border: 1.5px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  line-height: 1.5;
+}
+body.dark-mode .post-expanded-content pre {
+  background-color: rgba(0,0,0, 0.2);
+}
+.card.post.is-expanded .post-expanded-content {
+  grid-template-rows: 1fr;
+  border-top: 1.5px solid var(--panel-border);
+}
 .card.post.is-disabled {
   opacity: 0.6;
   filter: grayscale(50%);
@@ -743,6 +828,19 @@ footer{
   .timeline-item:nth-child(even) .timeline-icon { left: 0; }
 
 
+  #blog .post-inner-wrapper {
+    flex-direction: column !important; /* Stack image and content on mobile */
+    padding: 16px;
+    gap: 16px;
+  }
+  #blog .post-image-wrapper {
+    min-width: unset;
+    width: 100%;
+  }
+  #blog .post-content {
+    width: 100%;
+  }
+  #blog .post-image-wrapper { flex-basis: 200px; }
 
 
   .profile-main-pic { max-width: 100%; }
@@ -855,13 +953,15 @@ footer{
   .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--cursor-color);
+    background-color: white;
+    mix-blend-mode: difference;
   }
 
   .cursor-circle {
     width: 40px;
     height: 40px;
-    border: 2px solid var(--cursor-color);
+    border: 2px solid white;
+    mix-blend-mode: difference;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
                 width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
                 height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
@@ -883,7 +983,6 @@ footer{
   }
 }
 
-/* ---------- Lightbox Styles ---------- */
 .lightbox {
   display: none;
   position: fixed;

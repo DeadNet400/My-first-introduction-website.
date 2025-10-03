@@ -121,6 +121,62 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
+  const initBlogExpand = () => {
+    const blogContainer = document.getElementById('blog');
+    if (!blogContainer) return;
+
+    let currentExpandedCard = null; // To keep track of the currently expanded card
+
+    // Helper function to collapse a card
+    const collapseCard = (card) => {
+      if (!card) return;
+      card.classList.remove('is-expanded');
+      const button = card.querySelector('.read-more-btn');
+      if (button) {
+        button.firstChild.textContent = 'Read more ';
+      }
+    };
+
+    // Helper function to expand a card
+    const expandCard = (card) => {
+      if (!card) return;
+      card.classList.add('is-expanded');
+      const button = card.querySelector('.read-more-btn');
+      if (button) {
+        button.firstChild.textContent = 'Read less ';
+      }
+    };
+
+    blogContainer.addEventListener('click', (e) => {
+      const readMoreBtn = e.target.closest('.read-more-btn');
+      if (!readMoreBtn) return;
+
+      const postCard = readMoreBtn.closest('.card.post');
+      if (!postCard) return;
+
+      const isAlreadyExpanded = postCard.classList.contains('is-expanded');
+
+      if (isAlreadyExpanded) {
+        // If the clicked card is already open, just close it.
+        collapseCard(postCard);
+        currentExpandedCard = null;
+      } else {
+        // If another card is open, close it first.
+        if (currentExpandedCard) {
+          collapseCard(currentExpandedCard);
+        }
+        // Then, open the new card.
+        expandCard(postCard);
+        currentExpandedCard = postCard;
+
+        // Scroll the card into view if it's partially hidden
+        setTimeout(() => {
+          postCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 400); // Delay to allow the expansion animation to start and then scroll
+      }
+    });
+  };
+
   const initBackToTop = () => {
     const backToTopButton = document.getElementById('back-to-top');
     if (!backToTopButton) return;
@@ -237,6 +293,16 @@ document.addEventListener('DOMContentLoaded', function () {
       mouse.y = e.clientY;
     });
 
+    document.body.addEventListener('mouseenter', () => {
+      cursorDot.style.opacity = '1';
+      cursorCircle.style.opacity = '1';
+    });
+
+    document.body.addEventListener('mouseleave', () => {
+      cursorDot.style.opacity = '0';
+      cursorCircle.style.opacity = '0';
+    });
+
     const updatePosition = () => {
       cursorDot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
 
@@ -322,6 +388,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initMainTabs();
   initProfileSwitcher();
   initBlogTabs();
+  initBlogExpand();
   initBackToTop();
   initThemeSwitcher();
   initCustomCursor();

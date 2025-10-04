@@ -75,26 +75,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
       header.style.pointerEvents = 'none';
 
-      document.querySelector('button.tab.active')?.classList.remove('active');
-      document.querySelector(`button.tab[data-target="${targetId}"]`)?.classList.add('active');
+      const activeTab = document.querySelector('button.tab.active');
+      const newActiveTab = document.querySelector(`button.tab[data-target="${targetId}"]`);
+      if (activeTab) activeTab.classList.remove('active');
+      if (newActiveTab) newActiveTab.classList.add('active');
 
       if (panelToHide) {
-        const outAnimation = panelToHide.animate({
-          opacity: [1, 0],
-          transform: ['translateY(0)', 'translateY(-20px)']
-        }, { duration: 250, easing: 'ease-in', fill: 'forwards' });
-        await outAnimation.finished;
+        await panelToHide.animate({ opacity: [1, 0], transform: ['translateY(0)', 'translateY(-20px)'] }, { duration: 250, easing: 'ease-in' }).finished;
         panelToHide.classList.remove('active');
       }
 
       panelToShow.classList.add('active');
-      panelToShow.animate({
-        opacity: [0, 1],
-        transform: ['translateY(20px)', 'translateY(0)']
-      }, { duration: 300, easing: 'ease-out', fill: 'forwards' });
+      await panelToShow.animate({ opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] }, { duration: 300, easing: 'ease-out' }).finished;
 
       document.body.classList.toggle('is-home', targetId === 'home');
-
       header.style.pointerEvents = 'auto';
     });
   };
@@ -361,6 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
 
+    let previouslyFocusedElement;
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
 
@@ -368,19 +363,27 @@ document.addEventListener('DOMContentLoaded', function () {
       const trigger = e.target.closest('.lightbox-trigger');
       if (trigger) {
         e.preventDefault();
+        previouslyFocusedElement = document.activeElement;
         lightboxImg.src = trigger.href;
         lightbox.classList.add('show');
         document.body.style.overflow = 'hidden';
+        closeBtn.focus();
       }
     });
 
     const closeLightbox = () => {
       lightbox.classList.remove('show');
       document.body.style.overflow = '';
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+      }
     };
 
     closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox();
+    });
   };
 
   handleFontLoading();

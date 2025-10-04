@@ -184,9 +184,13 @@ main{ padding:0; }
 
 h1{ font-size:clamp(48px, 6vw, 72px); margin:0 0 24px; font-weight:normal; }
 h2{ font-size:36px; margin:28px 0 18px; font-weight:normal; }
-.panel h1,.panel h2,.panel h3,.card h1,.card h2,.card h3,
-.panel p,.panel li,.card p,.card li{ color:var(--panel-text); font-size: 1.2rem; }
-.panel a,.card a{ color:var(--link-color); }
+
+.panel, .card {
+  font-size: 1.2rem;
+}
+.panel h1, .panel h2, .panel h3, .panel p, .panel li,
+.card h1, .card h2, .card h3, .card p, .card li { color: var(--panel-text); }
+.panel a, .card a { color: var(--link-color); }
 
 footer{
   padding: 24px 0;
@@ -770,8 +774,10 @@ body.dark-mode .post-expanded-content pre {
 #tools.active .tool-card:nth-child(2) { animation-delay: 0.3s; }
 #tools.active .tool-card:nth-child(3) { animation-delay: 0.4s; }
 #tools.active .tool-card:nth-child(4) { animation-delay: 0.5s; }
+#tools.active .tool-card:nth-child(5) { animation-delay: 0.6s; }
+#tools.active .tool-card:nth-child(6) { animation-delay: 0.7s; }
 
-@media (max-width:1400px){
+@media (max-width:1400px){  
   .home-panel{ max-width:98vw; }
   .profile-intro-video{ max-width:98vw; }
   .profile-picture-row .card.picture{ max-width:98vw; }
@@ -846,10 +852,6 @@ body.dark-mode .post-expanded-content pre {
   .profile-main-pic { max-width: 100%; }
   .profile-picture-row, .profile-picture-row .card.picture { max-width: 100%; width: 100%; }
   .profile-picture-row .thumb-grid.horizontal { flex-direction: column; align-items: center; }
-
-  .profile-info-box h2,.profile-info-box p,.profile-info-box ul,.profile-info-box li{
-    max-width:100%; overflow-wrap:anywhere; word-break:break-word;
-  }
 
   .footer-container { flex-direction: column-reverse; text-align: center; }
 }

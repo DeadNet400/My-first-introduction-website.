@@ -2,14 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const handleFontLoading = async () => {
     const preloader = document.getElementById('preloader');
- 
     try {
       await document.fonts.ready;
     } catch (e) {
       console.error('Font loading failed or is not supported.', e);
     } finally {
       document.documentElement.classList.add('fonts-ready');
-      
       if (preloader) preloader.classList.add('hidden');
     }
   };
@@ -42,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       panelToShow.classList.add(activePanelClass);
+      if (config.onTabChange) config.onTabChange(button);
       await panelToShow.animate({ opacity: [0, 1], transform: ['translateY(10px)', 'translateY(0)'] }, { duration: 250, easing: 'ease-out' }).finished;
 
       container.style.pointerEvents = 'auto';
@@ -106,12 +105,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const initBlogTabs = () => {
     const blogSection = document.getElementById('blog');
+    if (!blogSection) return;
+
+    const marker = blogSection.querySelector('.blog-category-marker');
+    const buttons = blogSection.querySelectorAll('.blog-category-btn');
+
+    const updateMarker = (targetButton) => {
+      if (!marker || !targetButton) return;
+      marker.style.width = `${targetButton.offsetWidth}px`;
+      marker.style.left = `${targetButton.offsetLeft}px`;
+    };
+
+    const activeButton = blogSection.querySelector('.blog-category-btn.active');
+    if (activeButton) {
+      updateMarker(activeButton);
+    }
+
     createAnimatedTabs({
       container: blogSection,
       buttonSelector: '.blog-category-btn',
       panelSelector: '.blog-content-panel',
       activePanelClass: 'active',
-      getPanelId: (dataset) => `blog-${dataset.category}`
+      getPanelId: (dataset) => `blog-${dataset.category}`,
+      onTabChange: (newActiveButton) => updateMarker(newActiveButton)
+    });
+
+    window.addEventListener('resize', () => {
+      const currentActiveButton = blogSection.querySelector('.blog-category-btn.active');
+      if (currentActiveButton) {
+        updateMarker(currentActiveButton);
+      }
     });
   };
 
@@ -119,9 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const blogContainer = document.getElementById('blog');
     if (!blogContainer) return;
 
-    let currentExpandedCard = null; // To keep track of the currently expanded card
+    let currentExpandedCard = null;
 
-    // Helper function to collapse a card
     const collapseCard = (card) => {
       if (!card) return;
       card.classList.remove('is-expanded');
@@ -131,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-    // Helper function to expand a card
     const expandCard = (card) => {
       if (!card) return;
       card.classList.add('is-expanded');
@@ -151,15 +172,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const isAlreadyExpanded = postCard.classList.contains('is-expanded');
 
       if (isAlreadyExpanded) {
-        // If the clicked card is already open, just close it.
         collapseCard(postCard);
         currentExpandedCard = null;
       } else {
-        // If another card is open, close it first.
         if (currentExpandedCard) {
           collapseCard(currentExpandedCard);
         }
-        // Then, open the new card.
         expandCard(postCard);
         currentExpandedCard = postCard;
       }
@@ -264,9 +282,6 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const initCustomCursor = () => {
-    // Only initialize the cursor on devices with a fine pointer (mouse/trackpad).
-    // This is the most reliable way to exclude touch devices like phones and iPads,
-    // as it checks for both a coarse pointer (touch) and lack of hover capability.
     if (window.matchMedia('(pointer: coarse), (hover: none)').matches) return;
 
     const cursorDot = document.querySelector('.cursor-dot'); 
@@ -285,7 +300,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.body.addEventListener('mouseenter', () => {
-      // Show cursor only if the mouse is not over an iframe
       const isOverIframe = document.querySelector('iframe:hover');
       if (!isOverIframe) {
         cursorDot.style.opacity = '1';
@@ -294,9 +308,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.body.addEventListener('mouseleave', () => {
-      // Don't hide if the mouse is entering an iframe, as the iframe's own listener will handle it.
-      // This check is tricky, so we let the mouseenter on the iframe handle hiding.
-      // The main purpose of this is to hide the cursor when leaving the browser window itself.
       cursorDot.style.opacity = '0';
       cursorCircle.style.opacity = '0';
     });
